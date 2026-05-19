@@ -2,24 +2,24 @@
 
 The Fabric MCP server is hosted at `https://mcp.equinix.com/fabric` and can be used with MCP-compatible AI agents.
 
-For general information on MCP server setup and configuration, see [MCP Server Overview](overview.md).
+For general information on MCP server setup and configuration, see [Getting Started](../getting-started.md).
 
-:::warning[Private Beta]
-The Fabric MCP Server is currently in Private Beta. If you are interested in joining the Beta program, please email [fabric-intelligence-support@equinix.com](mailto:fabric-intelligence-support@equinix.com) or reach out to your Equinix account representative.
-:::
+**⚠️ Private Beta**
+
+The Fabric MCP Server is currently in Private Beta. To join the Beta program, email [fabric-intelligence-support@equinix.com](mailto:fabric-intelligence-support@equinix.com) or reach out to your Equinix account representative.
 
 
 ## Tools
 
 The Fabric MCP server exposes the following MCP tools that allow AI assistants to interact with your Equinix Fabric resources. Each tool corresponds to a specific Fabric API endpoint.
 
-:::important
-We recommend enabling human confirmation for tool execution, especially for operations that create, update, or delete resources. This helps prevent unintended changes to your Fabric infrastructure.
-:::
+**ℹ️ Recommendation**
 
-:::note[Current Limitations]
+Enable human confirmation for tool execution, especially for operations that create, update, or delete resources. This helps prevent unintended changes to your Fabric infrastructure.
+
+**⚠️ Current Limitations**
+
 Delete functionality is not currently supported in the Fabric MCP Server. This includes deletion of connections, ports, and Cloud Routers.
-:::
 
 ### Connections
 
@@ -34,14 +34,14 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Fabric Metros
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|---------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_metro` | Retrieve detailed information about a specific Fabric Metro by passing its Metro Code | [Get Metro by Code](/api-catalog/fabricv4/#tag/Metros/operation/getMetroByCode) |
 | `list_metro` | Fetch all metros available in Fabric | [Get All Metros](/api-catalog/fabricv4/#tag/Metros/operation/getMetros) |
 
 ### Ports
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_port` | Retrieve detailed information about a specific Fabric Port by passing its UUID | [Get Port by UUID](/api-catalog/fabricv4/#tag/Ports/operation/getPortByUuid) |
 | `search_port` | Search for Fabric Ports using advanced filtering, pagination, and sorting | [Search Ports](/api-catalog/fabricv4/#tag/Ports/operation/searchPorts) |
 | `update_port` | Update a Fabric Port configuration | [Update Port](/api-catalog/fabricv4/#tag/Ports/operation/updatePortByUuid) |
@@ -50,7 +50,7 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Cloud Routers
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|-------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `search_router` | Search for Equinix Fabric Cloud Routers using advanced filtering, pagination, and sorting | [Search Cloud Routers](/api-catalog/fabricv4/#tag/Cloud-Routers/operation/searchCloudRouters) |
 | `create_router` | Create a new Fabric Cloud Router | [Create Cloud Router](/api-catalog/fabricv4/#tag/Cloud-Routers/operation/createCloudRouter) |
 | `update_router` | Update an existing Fabric Cloud Router | [Update Cloud Router](/api-catalog/fabricv4/#tag/Cloud-Routers/operation/updateCloudRouterByUuid) |
@@ -72,19 +72,19 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Projects
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|-------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `search_projects` | Fetch all projects available in Equinix Resource Manager | [Get Projects](/api-catalog/getprojectsv2/#tag/Project/operation/getAllProjects) |
 
 ### Pricing
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|-------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `search_prices` | Search for pricing information across Fabric resources | [Search Prices](/api-catalog/fabricv4/#tag/Prices/operation/searchPrices) |
 
 ### Precision Time
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|-------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_time_service` | Retrieve detailed information about a specific Precision Time service by UUID | [Get Time Service](/api-catalog/fabricv4/#tag/Precision-Time/operation/getTimeServicesById) |
 | `search_time_service` | Search for Equinix Precision Time services | [Search Time Services](/api-catalog/fabricv4/#tag/Precision-Time/operation/searchTimeServices) |
 | `update_time_service` | Update a Precision Time service configuration | [Update Time Service](/api-catalog/fabricv4/#tag/Precision-Time/operation/updateTimeServicesById) |
@@ -92,7 +92,7 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Service Profiles
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `search_service_profile` | Search for Fabric Service Profiles using advanced filtering | [Search Service Profiles](/api-catalog/fabricv4/#tag/Service-Profiles/operation/searchServiceProfiles) |
 | `create_service_profile` | Create a new Fabric Service Profile | [Create Service Profile](/api-catalog/fabricv4/#tag/Service-Profiles/operation/createServiceProfile) |
 | `update_service_profile` | Update an existing Service Profile | [Update Service Profile](/api-catalog/fabricv4/#tag/Service-Profiles/operation/updateServiceProfileByUuid) |
@@ -102,7 +102,7 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Service Tokens
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|---------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `search_service_tokens` | Search for Fabric Service Tokens | [Search Service Tokens](/api-catalog/fabricv4/#tag/Service-Tokens/operation/searchServiceTokens) |
 | `create_service_token` | Create a new Service Token | [Create Service Token](/api-catalog/fabricv4/#tag/Service-Tokens/operation/createServiceToken) |
 | `update_service_token` | Update an existing Service Token | [Update Service Token](/api-catalog/fabricv4/#tag/Service-Tokens/operation/updateServiceTokenByUuid) |
@@ -110,7 +110,7 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Route Filters
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|---------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `search_route_filter` | Search for Cloud Router Route Filters | [Search Route Filters](/api-catalog/fabricv4/#tag/Route-Filters/operation/searchRouteFilters) |
 | `create_route_filter` | Create a new Route Filter for traffic management | [Create Route Filter](/api-catalog/fabricv4/#tag/Route-Filters/operation/createRouteFilter) |
 | `update_route_filter` | Update an existing Route Filter configuration | [Update Route Filter](/api-catalog/fabricv4/#tag/Route-Filters/operation/patchRouteFilterByUuid) |
@@ -118,7 +118,7 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Route Filter Rules
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_all_route_filter_rules` | List all rules for a specific Route Filter | [List Route Filter Rules](/api-catalog/fabricv4/#tag/Route-Filter-Rules/operation/getRouteFilterRules) |
 | `get_route_filter_rule` | Get detailed information about a specific Route Filter Rule | [Get Route Filter Rule](/api-catalog/fabricv4/#tag/Route-Filter-Rules/operation/getRouteFilterRuleByUuid) |
 | `create_route_filter_rule` | Create new rules for a Route Filter | [Create Route Filter Rules](/api-catalog/fabricv4/#tag/Route-Filter-Rules/operation/createRouteFilterRule) |
@@ -126,8 +126,8 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 
 ### Route Aggregation
 
-| Tool                       | Description | API Endpoint                                                                                        |
-|----------------------------| ----- |-----------------------------------------------------------------------------------------------------| 
+| Tool                       | Description                                                                 | API Endpoint                                                                                        |
+|----------------------------| -----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------| 
 | `search_route_aggregation` | Search for Cloud Router Route Aggregation | [Search Route Aggregation](/api-catalog/fabricv4/#tag/Route-Aggregations/operation/searchRouteAggregations) |
 | `create_route_aggregation` | Create a new Route Aggregation for traffic management | [Create Route Aggregation](/api-catalog/fabricv4/#tag/Route-Aggregations/operation/createRouteAggregation) |
 | `update_route_aggregation` | Update an existing Route Aggregation configuration | [Update Route Aggregation](/api-catalog/fabricv4/#tag/Route-Aggregations/operation/patchRouteAggregationByUuid) |
@@ -162,7 +162,7 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Observability - Stream Alert Rules
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `list_stream_alert_rules` | List all alert rules for a stream | [Get Alert Rules](/api-catalog/fabricv4/#tag/Stream-Alert-Rules/operation/getStreamAlertRules) |
 | `get_stream_alert_rule_details` | Get detailed information about a specific alert rule | [Get Alert Rule Details](/api-catalog/fabricv4/#tag/Stream-Alert-Rules/operation/getStreamAlertRuleByUuid) |
 | `create_stream_alert_rule` | Create a new alert rule for a stream | [Create Alert Rule](/api-catalog/fabricv4/#tag/Stream-Alert-Rules/operation/createStreamAlertRules) |
@@ -171,14 +171,14 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 ### Observability - Cloud Events
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|-------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_cloud_event` | Get details about a specific cloud event | [Get Cloud Event](/api-catalog/fabricv4/#tag/Cloud-Events/operation/getCloudEventByAssetId) |
 | `search_cloud_events` | Search for cloud events across your Fabric resources | [Search Cloud Events](/api-catalog/fabricv4/#tag/Cloud-Events/operation/searchCloudEvents) |
 
 ### Observability - Metrics
 
 | Tool | Description | API Endpoint |
-| ----- | ----- | ----- | 
+|------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_metrics` | Get metrics for a specific asset by asset ID | [Get Metrics](/api-catalog/fabricv4/#tag/Metrics/operation/getMetricByAssetId) |
 | `search_metrics` | Search for metrics across multiple assets | [Search Metrics](/api-catalog/fabricv4/#tag/Metrics/operation/searchMetrics) |
 

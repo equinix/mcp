@@ -2,6 +2,8 @@
 
 This guide explains how to connect to and use Equinix MCP servers. Authentication is handled by your MCP client using OAuth 2.1 with Dynamic Client Registration (DCR) or Client ID Metadata Documents (CIMD). You do not need to create or manage API keys or access tokens manually.
 
+> **📖 Official Documentation:** For comprehensive setup and configuration instructions for all IDEs and clients, refer to the [Equinix MCP Servers Setup and Configuration documentation](https://docs.equinix.com/equinix-api/mcp-servers/overview#setup-and-configuration).
+
 ## Prerequisites
 
 - An Equinix account ([Create one](https://portal.equinix.com))
@@ -29,58 +31,7 @@ Equinix MCP servers use OAuth 2.1 for authentication. For client registration, t
 
 To connect an Equinix MCP server, add the server URL to your MCP client's configuration file. When the client connects for the first time, it will initiate the authentication flow described above.
 
-Below are example instructions for common MCP clients. The exact format varies by client, but the pattern is the same: add the server URL, save the config, restart the client, and follow the browser prompt on first use.
-
-### VS Code
-
-1. Install the **MCP Servers** extension from the Marketplace.
-2. Open settings: `Code → Preferences → Settings`.
-3. Search for "MCP" and add your server entries (no Authorization header required):
-
-```json
-{
-  "servers": {
-    "fabric": {
-      "type": "http",
-      "url": "https://mcp.equinix.com/fabric"
-    },
-    "peering-insights": {
-      "type": "http",
-      "url": "https://mcp.equinix.com/peeringInsights"
-    }
-  }
-}
-```
-
-4. Restart VS Code. On first use the client will open a browser window to complete the OAuth flow.
-
-### Claude Desktop
-
-1. Locate your Claude Desktop config file:
-   - **macOS:** `~/.claude_desktop_config.json`
-   - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
-
-2. Add the server URL (the client handles authentication):
-
-```json
-{
-  "mcpServers": {
-    "fabric": {
-      "url": "https://mcp.equinix.com/fabric"
-    }
-  }
-}
-```
-
-3. Save and restart Claude Desktop. Follow the browser prompt to authenticate on first connect.
-
-### Cursor IDE
-
-1. Open **Settings → Extensions → MCP**.
-2. Click **Add Server** and fill in:
-   - **Name:** fabric
-   - **URL:** https://mcp.equinix.com/fabric
-3. Repeat for other servers and restart Cursor. The client will open the browser-based OAuth flow on first use.
+For comprehensive setup and configuration instructions for all IDEs and clients, refer to the [Equinix MCP Servers Setup and Configuration documentation](https://docs.equinix.com/equinix-api/mcp-servers/overview#setup-and-configuration).
 
 ## Test Your Connection
 
@@ -97,6 +48,70 @@ Can you list my Fabric connections?
 ```
 
 If the client completes the OAuth flow successfully, you'll see your connections listed.
+
+## Security Considerations
+
+### Use a Dedicated MCP User
+
+We strongly recommend creating a separate Equinix user account specifically for MCP access. This provides several benefits:
+
+- **Least Privilege:** Scope the MCP user's permissions to only the projects and resources it needs
+- **Audit Trail:** Distinguish MCP actions from your own actions in logs
+- **Blast Radius:** If the MCP session is compromised, only the dedicated user's permissions are exposed
+- **Easy Revocation:** Disable or remove the MCP user without affecting your own account
+
+**How to create a dedicated MCP user:**
+1. In the Equinix Customer Portal, go to **Organization → Users → Invite User**
+2. Create a user identity designated for MCP (e.g., `yourname+mcp@yourcompany.com`)
+3. Assign the user to only the projects and resources MCP should have access to
+4. Authenticate as this user when prompted during the MCP setup flow
+
+### Important Security Notes
+
+- **Token Risk:** The MCP server authenticates using your credentials and operates with the same permissions as the account you use. Any action the MCP server performs is executed as you.
+- **Trusted Clients Only:** Only authenticate to Equinix MCP servers through MCP clients that you trust and have installed yourself.
+- **Tool Confirmation:** Enable human confirmation in your MCP client for operations that create or modify resources.
+- **Audit Trail:** All operations performed through the MCP server are logged and attributable to the authenticated user.
+
+For more security guidance, see the [official security considerations documentation](https://docs.equinix.com/equinix-api/mcp-servers/overview#security-considerations).
+
+## Troubleshooting
+
+### Authentication Failed
+**Problem:** Your MCP client cannot authenticate or reports an authorization error.
+
+**Solution:**
+- Ensure your Equinix Customer Portal account is active and in good standing
+- Try re-authenticating by removing and re-adding the MCP server in your client
+- Clear your client's cached credentials if available, then restart and re-authenticate
+- Confirm that your account has been added to the Private Beta allowlist
+
+### MCP Server Not Responding
+**Problem:** Your MCP client cannot communicate with the MCP server.
+
+**Solution:**
+- Verify internet connection can reach `https://mcp.equinix.com/<service>`
+- Check that your MCP client configuration file has the correct URL and format
+- Restart your MCP client to reinitialize the connection
+- Review MCP server logs in your client for specific error messages
+
+### Permission Denied Errors
+**Problem:** Operations fail with permission or authorization errors.
+
+**Solution:**
+- Ensure the Equinix account you authenticated with has appropriate roles and permissions
+- If using a dedicated MCP user, verify the user has been assigned to the correct projects
+- Confirm that the account has access to the resources you're trying to manage
+
+### Session Expired
+**Problem:** Operations that were previously working begin to fail with authentication errors.
+
+**Solution:** Your MCP client should refresh tokens automatically. If issues persist:
+- Restart your MCP client to trigger a new authentication flow
+- Complete the browser login flow when prompted
+- If the issue persists, remove and re-add the MCP server configuration
+
+For more troubleshooting guidance, see the [official troubleshooting documentation](https://docs.equinix.com/equinix-api/mcp-servers/overview#troubleshooting).
 
 ### MCP Inspector
 

@@ -91,7 +91,6 @@ This guide covers:
 
 1. Copy the MCP server endpoint URL from the [Available Servers](#available-servers) table
 2. Add it to your client's configuration file
-3. Restart your IDE or client application
 4. Verify the connection in your MCP client interface
 
 
