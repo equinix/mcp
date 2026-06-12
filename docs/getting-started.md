@@ -188,7 +188,6 @@ Then:
 ## What's Next?
 
 - [Create and manage Fabric connections](./servers/fabric-mcp.md)
-- [Optimize peering with Insights](./servers/peering-insights-mcp.md)
 - [View all available tools](./TOOLS_REFERENCE.md)
 - [Learn about rate limits and quotas](./rate-limits.md)
 

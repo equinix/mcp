@@ -23,7 +23,6 @@ This repository provides standardized MCP server implementations that enable AI 
 | Server Name | Endpoint | Description |
 |-------------|----------|-------------|
 | **Fabric MCP** | `https://mcp.equinix.com/fabric` | Interact with Equinix Fabric resources |
-| **Peering Insights MCP** | `https://mcp.equinix.com/peeringInsights` | Manage Internet Exchange and peering resources |
 
 ## Server Tools
 
@@ -36,10 +35,6 @@ Each MCP server exposes a set of tools for interacting with its respective API. 
 Available tools:
 - Reference: [All Fabric tools](./docs/TOOLS_REFERENCE.md#fabric-mcp-tools)
 
-### Peering Insights MCP Server
-
-**Location:** `https://mcp.equinix.com/peeringInsights`
-
 ## 🌐 MCP Server Endpoints
 
 MCP servers are accessible via standardized HTTP endpoints that support the Model Context Protocol. These endpoints work with any compatible MCP client.
@@ -51,10 +46,6 @@ MCP servers are accessible via standardized HTTP endpoints that support the Mode
     "fabric": {
       "type": "http",
       "url": "https://mcp.equinix.com/fabric"
-    },
-    "peering-insights": {
-      "type": "http",
-      "url": "https://mcp.equinix.com/peeringInsights"
     }
   }
 }
@@ -119,7 +110,6 @@ This guide covers:
 |----------|---------|
 | [Getting Started](./docs/getting-started.md) | First-time setup and configuration |
 | [Fabric MCP Server](./docs/servers/fabric-mcp.md) | Connection management workflows and examples |
-| [Peering Insights Server](./docs/servers/peering-insights-mcp.md) | Peering optimization and analysis |
 
 ## Additional Resources
 
