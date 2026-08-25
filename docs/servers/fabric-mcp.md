@@ -30,6 +30,9 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `update_connection` | Update an Equinix Fabric Connection using its UUID                              | [Update Connection](/api-catalog/fabricv4/#tag/Connections/operation/updateConnectionByUuid)  |
 | `validate_connection` | Validate a Fabric Connection configuration before creation                      | [Validate Connection](/api-catalog/fabricv4/#tag/Connections/operation/validateConnections)   |
 | `retry_connection_action` | Perform actions on a Fabric Connection                                          | [Connection Actions](/api-catalog/fabricv4/#tag/Connections/operation/createConnectionAction) |
+| `check_connection` | Validate a connection configuration before creation. |  |
+| `retry_connection` | Retry a connection operation (creation or deletion). |  |
+| `search_connections` | Get a list of user's virtual connections using search criteria. |  |
 
 ### Fabric Metros
 
@@ -37,6 +40,7 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 |---------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_metro` | Retrieve detailed information about a specific Fabric Metro by passing its Metro Code | [Get Metro by Code](/api-catalog/fabricv4/#tag/Metros/operation/getMetroByCode) |
 | `list_metro` | Fetch all metros available in Fabric | [Get All Metros](/api-catalog/fabricv4/#tag/Metros/operation/getMetros) |
+| `list_metros` | Fetch all metros available in Equinix Fabric. |  |
 
 ### Ports
 
@@ -46,6 +50,9 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `search_port` | Search for Fabric Ports using advanced filtering, pagination, and sorting | [Search Ports](/api-catalog/fabricv4/#tag/Ports/operation/searchPorts) |
 | `update_port` | Update a Fabric Port configuration | [Update Port](/api-catalog/fabricv4/#tag/Ports/operation/updatePortByUuid) |
 | `get_vlan_port` | Get VLAN configurations for a specific port | [Get Port VLANs](/api-catalog/fabricv4/#tag/Ports/operation/getVlans) |
+| `attach_physical_ports_to_lag` | Add one or more physical ports to an existing virtual LAG port. |  |
+| `create_port` | Create a new Equinix Fabric port (XF_PORT) via the Fabric API. |  |
+| `search_ports` | Search for Equinix Fabric ports using advanced filtering, sorting, and pagination. |  |
 
 ### Cloud Routers
 
@@ -59,6 +66,10 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `search_router_commands` | Search for router command execution results | [Search Router Commands](/api-catalog/fabricv4/#tag/Cloud-Routers/operation/searchCloudRouterCommands) |
 | `search_routes` | Search for routes including advertised, received, and active routes | [Search Routes](https://docs.equinix.com/fabric-cloud-router/fcr-api/manage-routing-tables-api/) |
 | `load_routes` | Create route table actions for a Cloud Router | [Create Route Actions](/api-catalog/fabricv4/#tag/Cloud-Routers/operation/createCloudRouterAction) |
+| `create_router_command` | Initiate a PING command on a Fabric Cloud Router by UUID. |  |
+| `list_router_packages` | Retrieve all Fabric Cloud Router package available in Equinix Fabric. |  |
+| `refresh_routes` | Loads the user's routing table of a Fabric Cloud Router (FCR). |  |
+| `search_routers` | Search for Equinix Fabric Cloud Routers using advanced filtering, sorting, and pagination. |  |
 
 ### Routing Protocols
 
@@ -68,12 +79,23 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `create_routing_protocols` | Create a new Routing Protocol                                       | [Create Routing Protocols](/api-catalog/fabricv4/#tag/Routing-Protocols/operation/createConnectionRoutingProtocol)        |
 | `update_routing_protocols` | Update an existing Routing Protocol                                 | [Update Routing Protocols](/api-catalog/fabricv4/#tag/Routing-Protocols/operation/patchConnectionRoutingProtocolByUuid)   |
 | `replace_routing_protocols` | Replace an existing Routing Protocol                                | [Update Routing Protocols](/api-catalog/fabricv4/#tag/Routing-Protocols/operation/replaceConnectionRoutingProtocolByUuid) |
+| `attach_route_aggregation` | Attach a Route Aggregation to a connection. |  |
+| `attach_route_filter` | Attach a Route Filter to a connection. |  |
+| `create_routing_protocol` | Create a single Routing Protocol (DIRECT or BGP) for a connection. |  |
+| `create_routing_protocol_action` | Create a BGP action on a routing protocol for a connection. |  |
+| `list_route_aggregations_for_connection` | Get all Route Aggregations attached to a connection, with optional filtering by UUID. |  |
+| `list_route_filters_for_connection` | Get all Route Filters attached to a connection, with optional filtering by UUID. |  |
+| `list_routing_protocol_actions` | Get BGP actions for a routing protocol on a connection, optionally filtering by action UUID. |  |
+| `list_routing_protocols` | This tool fetches Routing Protocols for a specific connection. |  |
+| `replace_routing_protocol` | Replace a Routing Protocol on a connection using PUT with a full payload. |  |
+| `update_routing_protocol` | Update a Routing Protocol using JSON Patch operations. |  |
 
 ### Projects
 
 | Tool | Description | API Endpoint |
 |-------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `search_projects` | Fetch all projects available in Equinix Resource Manager | [Get Projects](/api-catalog/getprojectsv2/#tag/Project/operation/getAllProjects) |
+| `list_project` | Fetch all projects available in the Equinix Substrate Governance API. |  |
 
 ### Pricing
 
@@ -98,6 +120,9 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `update_service_profile` | Update an existing Service Profile | [Update Service Profile](/api-catalog/fabricv4/#tag/Service-Profiles/operation/updateServiceProfileByUuid) |
 | `replace_service_profile` | Replace a Service Profile configuration | [Replace Service Profile](/api-catalog/fabricv4/#tag/Service-Profiles/operation/putServiceProfileByUuid) |
 | `get_service_profile_metros` | Get metro information for a specific Service Profile | [Get Service Profile Metros](/api-catalog/fabricv4/#tag/Service-Profiles/operation/getServiceProfileMetrosByUuid) |
+| `get_service_profile` | Retrieve detailed information about a specific service profile by its UUID. |  |
+| `list_service_profile_metros` | Retrieve the list of metros where a specific service profile is available. |  |
+| `search_service_profiles` | Search for Equinix Fabric service profiles using advanced filtering, sorting, and pagination. |  |
 
 ### Service Tokens
 
@@ -114,6 +139,11 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `search_route_filter` | Search for Cloud Router Route Filters | [Search Route Filters](/api-catalog/fabricv4/#tag/Route-Filters/operation/searchRouteFilters) |
 | `create_route_filter` | Create a new Route Filter for traffic management | [Create Route Filter](/api-catalog/fabricv4/#tag/Route-Filters/operation/createRouteFilter) |
 | `update_route_filter` | Update an existing Route Filter configuration | [Update Route Filter](/api-catalog/fabricv4/#tag/Route-Filters/operation/patchRouteFilterByUuid) |
+| `get_route_filter_change` | Retrieve a specific change or update log of an Equinix Route Filter Policy. |  |
+| `list_route_filter_changes` | Retrieve changes or update history of an Equinix Route Filter Policy. |  |
+| `list_route_filter_connections` | Retrieve all connections using a specific Route Filter Policy. |  |
+| `search_route_filter_attachments_for_fcr` | Search for Equinix Route Filter Attachments using advanced filtering, sorting, and pagination. |  |
+| `search_route_filters` | Search for Equinix Route Filter Policies using advanced filtering, sorting, and pagination. |  |
 
 ### Route Filter Rules
 
@@ -123,6 +153,9 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `get_route_filter_rule` | Get detailed information about a specific Route Filter Rule | [Get Route Filter Rule](/api-catalog/fabricv4/#tag/Route-Filter-Rules/operation/getRouteFilterRuleByUuid) |
 | `create_route_filter_rule` | Create new rules for a Route Filter | [Create Route Filter Rules](/api-catalog/fabricv4/#tag/Route-Filter-Rules/operation/createRouteFilterRule) |
 | `update_route_filter_rule` | Update an existing Route Filter Rule | [Update Route Filter Rule](/api-catalog/fabricv4/#tag/Route-Filter-Rules/operation/patchRouteFilterRuleByUuid) |
+| `get_route_filter_rule_change` | Retrieve a specific change or update log of an Equinix Route Filter Rule. |  |
+| `list_route_filter_rule_changes` | Retrieve changes or update history of an Equinix Route Filter Rule. |  |
+| `list_route_filter_rules` | Retrieve all Route Filter Rules under a specific Route Filter Policy. |  |
 
 ### Route Aggregation
 
@@ -131,6 +164,12 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `search_route_aggregation` | Search for Cloud Router Route Aggregation | [Search Route Aggregation](/api-catalog/fabricv4/#tag/Route-Aggregations/operation/searchRouteAggregations) |
 | `create_route_aggregation` | Create a new Route Aggregation for traffic management | [Create Route Aggregation](/api-catalog/fabricv4/#tag/Route-Aggregations/operation/createRouteAggregation) |
 | `update_route_aggregation` | Update an existing Route Aggregation configuration | [Update Route Aggregation](/api-catalog/fabricv4/#tag/Route-Aggregations/operation/patchRouteAggregationByUuid) |
+| `get_route_aggregation` | Retrieve details for a specific Route Aggregation Policy by UUID. |  |
+| `get_route_aggregation_change` | Retrieve a specific change or update log of an Equinix Route Aggregation Policy. |  |
+| `list_route_aggregation_changes` | Retrieve changes or update history of an Equinix Route Aggregation Policy. |  |
+| `list_route_aggregation_connections` | Retrieve all connections using a specific Route Aggregation Policy. |  |
+| `search_route_aggregation_attachments_for_fcr` | Search for Equinix Route Aggregation Attachments using advanced filtering, sorting, and pagination. |  |
+| `search_route_aggregations` | Search for Equinix Route Aggregation Policies using advanced filtering, sorting, and pagination. |  |
 
 ### Route Aggregation Rules
 
@@ -140,6 +179,9 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `get_route_aggregation_rule`      | Get detailed information about a specific Route Aggregation Rule | [Get Route Aggregation Rule](/api-catalog/fabricv4/#tag/Route-Aggregation-Rules/operation/getRouteAggregationRuleByUuid) |
 | `create_route_aggregation_rule`   | Create new rules for a Route Aggregation                              | [Create Route Aggregation Rules](/api-catalog/fabricv4/#tag/Route-Aggregation-Rules/operation/createRouteAggregationRule) |
 | `update_route_aggregation_rule`   | Update an existing Route Aggregation Rule                             | [Update Route Aggregation Rule](/api-catalog/fabricv4/#tag/Route-Aggregation-Rules/operation/patchRouteAggregationRuleByUuid) |
+| `get_route_aggregation_rule_change` | Retrieve a specific change or update log of an Equinix Route Aggregation Rule. |  |
+| `list_route_aggregation_rule_changes` | Retrieve changes or update history of an Equinix Route Aggregation Rule. |  |
+| `list_route_aggregation_rules` | Retrieve all Route Aggregation Rules under a specific Route Aggregation Policy. |  |
 
 
 ### Observability - Streams
@@ -158,6 +200,12 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `get_stream_subscription_details`  | Get details about a specific telemetry stream subscription              | [Get Stream Subscription](/api-catalog/fabricv4/#tag/Stream-Subscriptions/operation/getStreamSubscriptionByUuid)       |
 | `create_stream_subscription`       | Create a new telemetry stream subscription                              | [Create Stream Subscription](/api-catalog/fabricv4/#tag/Stream-Subscriptions/operation/createStreamSubscriptions)      |
 | `update_stream_subscription`      | Update an existing telemetry stream subscription                        | [Update Stream Subscription](/api-catalog/fabricv4/#tag/Stream-Subscriptions/operation/updateStreamSubscriptionByUuid) |
+| `get_stream` | Retrieve comprehensive details about an Equinix Fabric Stream. |  |
+| `get_stream_attached_asset` | Retrieve comprehensive details about a specific attached asset for an Equinix Fabric Stream. |  |
+| `get_stream_network_edge_device` | Retrieve details of a network edge device attached to an Equinix Fabric Stream. |  |
+| `get_stream_subscription` | Retrieve comprehensive details about a specific stream subscription for an Equinix Fabric Stream. |  |
+| `list_stream_attached_assets_by_type` | Retrieve a list of all attached assets with the specified type for a specific Equinix Fabric Stream. |  |
+| `update_stream_network_edge_device` | Attach or replace a network edge device on an Equinix Fabric Stream. |  |
 
 ### Observability - Stream Alert Rules
 
@@ -167,6 +215,8 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 | `get_stream_alert_rule_details` | Get detailed information about a specific alert rule | [Get Alert Rule Details](/api-catalog/fabricv4/#tag/Stream-Alert-Rules/operation/getStreamAlertRuleByUuid) |
 | `create_stream_alert_rule` | Create a new alert rule for a stream | [Create Alert Rule](/api-catalog/fabricv4/#tag/Stream-Alert-Rules/operation/createStreamAlertRules) |
 | `update_stream_alert_rule` | Update an existing alert rule | [Update Alert Rule](/api-catalog/fabricv4/#tag/Stream-Alert-Rules/operation/updateStreamAlertRuleByUuid) |
+| `get_stream_alert_rule` | Retrieve comprehensive details about a specific alert rule for an Equinix Fabric Stream. |  |
+| `replace_stream_alert_rule` | Replace an existing alert rule for an Equinix Fabric Stream. |  |
 
 ### Observability - Cloud Events
 
@@ -181,6 +231,46 @@ Delete functionality is not currently supported in the Fabric MCP Server. This i
 |------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `get_metrics` | Get metrics for a specific asset by asset ID | [Get Metrics](/api-catalog/fabricv4/#tag/Metrics/operation/getMetricByAssetId) |
 | `search_metrics` | Search for metrics across multiple assets | [Search Metrics](/api-catalog/fabricv4/#tag/Metrics/operation/searchMetrics) |
+
+### Application Domain
+
+| Tool | Description | API Endpoint |
+| --- | --- | --- |
+| `create_application_domain` | Create a new Equinix Fabric Application Domain. |  |
+| `get_application_domain` | Retrieve details for a specific Fabric Application Domain by application domain ID. |  |
+| `search_application_domains` | Get a list of user's application domains using search criteria. |  |
+
+### Application Link
+
+| Tool | Description | API Endpoint |
+| --- | --- | --- |
+| `attach_application_domain_to_link` | Attach an application domain to an application link in Equinix Fabric. |  |
+| `attach_application_service_to_link` | Attach a application service to a application link in Equinix Fabric. |  |
+| `create_application_link` | Create a new Equinix Fabric Application Link. |  |
+| `get_application_link` | Retrieve details for a specific Fabric Application Link by application link ID. |  |
+| `search_application_links` | Get a list of user's application links using search criteria. |  |
+
+### Application Service
+
+| Tool | Description | API Endpoint |
+| --- | --- | --- |
+| `create_application_service` | Create a new Equinix Fabric Application Service. |  |
+| `search_application_services` | Get a list of user's application services using search criteria. |  |
+
+### Application Subscription
+
+| Tool | Description | API Endpoint |
+| --- | --- | --- |
+| `create_application_subscription` | Create a new Equinix Fabric application subscription for application link and application service. |  |
+| `search_application_subscriptions` | Get a list of user's application subscriptions using search criteria. |  |
+
+### Networks
+
+| Tool | Description | API Endpoint |
+| --- | --- | --- |
+| `create_network` | Create a new Equinix Fabric Network. |  |
+| `search_networks` | Search for Equinix Fabric Networks using advanced filtering, sorting, and pagination. |  |
+| `update_network` | Update an Equinix Fabric Network attribute. |  |
 
 
 
